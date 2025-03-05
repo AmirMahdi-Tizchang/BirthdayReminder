@@ -1,0 +1,57 @@
+<!-- birthday/templates/birthday/add.html -->
+{% extends "birthday/layout.html" %}
+{% load static %}
+
+{% block title %}
+    Add a New Birthdate
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8">
+                <h2 class="mb-4">New Birthdate</h2>
+                <form action="{% url 'add' %}" method="post">
+                    {% csrf_token %}
+                    <div class="row g-3 mb-3">
+                        <div class="col-12 col-md-6 one-line">
+                            <input type="text" class="form-control" autofocus name="first_name" required placeholder="First name">
+                            <input type="text" class="form-control" id="last" name="last_name" required placeholder="Last name">
+                        </div>
+                    </div>
+                    <div class="row g-3 mb-3">
+                        <div class="col-12 col-md-10">
+                            <input type="text" class="form-control" name="company" placeholder="Company (e.g., Friend, Uncle, etc.)" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="row g-3 mb-3">
+                        <div class="col-12 col-md-10">
+                            <label for="birthdate_day">Birthdate</label>
+                            <div class="d-flex gap-3">
+                                <select class="form-select" name="birthdate_day" id="birthdate_day" required>
+                                    <option value="" disabled selected>Day</option>
+                                    {% for day in days %}
+                                        <option value="{{ day }}">{{ day }}</option>
+                                    {% endfor %}
+                                </select>
+                                <select class="form-select" name="birthdate_month" id="birthdate_month" required>
+                                    <option value="" disabled selected>Month</option>
+                                    {% for value, name in months %}
+                                        <option value="{{ value }}">{{ name }}</option>
+                                    {% endfor %}
+                                </select>
+                                <select class="form-select" name="birthdate_year" id="birthdate_year" required>
+                                    <option value="" disabled selected>Year</option>
+                                    {% for year in years %}
+                                        <option value="{{ year }}">{{ year }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Add">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "birthday/layout.html" %}
+
+{% block title %}
+    Today's Birthday
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Today's Birthdays - {{ today|date:"F d, Y" }}</h1>
+        {% if birthdates %}
+            <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Celebrant</th>
+                            <th scope="col">Age</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for birthdate in birthdates %}
+                            <tr>
+                                <td>{{ birthdate.celebrant }}</td>
+                                <td>{{ birthdate.age }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <h4 class="text-center text-muted">No birthdays today!</h4>
+        {%endif %}
+    </div>
+{% endblock %}

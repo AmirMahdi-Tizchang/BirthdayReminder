@@ -1,0 +1,26 @@
+<!-- birthday/templates/birthday/about.html -->
+{% extends "birthday/layout.html" %}
+{% block title %}
+    About Birthday Reminder
+{% endblock %}
+
+{% block body %}
+    <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+        <div class="card shadow-lg" style="max-width: 600px; padding: 2rem 3rem;">
+            <img src="https://teakandthyme.com/wp-content/uploads/2024/05/jellycat-birthday-cake-DSC_9332-1x1-1200.jpg" class="card-img-top img-fluid rounded mb-3" alt="Jellycat Birthday Cake">
+            <div class="card-body text-center">
+                <h2 class="card-title mb-3">About Birthday Reminder</h2>
+                <p class="card-text">
+                    Welcome to Birthday Reminder—a simple, heartfelt app to keep track of special days!
+                    Whether it’s a friend, family member, or even a company milestone, we’ll send you a warm
+                    nudge so you never miss a celebration.
+                </p>
+                <p class="card-text">
+                    Designed with care by <a href="https://amirmahditizchang.onrender.com" target="_blank" class="text-primary">AmirMahdi Tizchang</a>, this is an open-source project. Feel free to
+                    explore the code, contribute, or send a pull request on
+                    <a href="https://github.com/AmirMahdi-Tizchang/BirthdayReminder" target="_blank" class="text-primary">GitHub</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
