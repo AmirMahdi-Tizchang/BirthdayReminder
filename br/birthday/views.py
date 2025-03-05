@@ -139,7 +139,7 @@ def register(request):
                     birthday = Birthday.objects.create(
                         owner=user,
                         celebrant=f"{first_name} {last_name}",
-                        birthdate=birthdate,
+                        birthday=birthdate,
                         company="itself"
                     )
                     birthday.save()
